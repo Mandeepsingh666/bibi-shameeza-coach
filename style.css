@@ -2,25 +2,25 @@
    ROOT & RESET
 =========================== */
 :root {
-  --purple-dark:  #3b1f5e;
-  --purple-mid:   #6b3fa0;
-  --purple-light: #9b72cf;
+  --purple-dark:  #2d1a00;
+  --purple-mid:   #7a5500;
+  --purple-light: #c09030;
   --gold:         #c9a84c;
   --gold-light:   #e8c97a;
   --cream:        #fdf8f2;
-  --cream-dark:   #f2ead8;
+  --cream-dark:   #f5ecc8;
   --white:        #ffffff;
-  --text-dark:    #1a1a2e;
-  --text-mid:     #4a3f6b;
-  --text-light:   #7a6f95;
+  --text-dark:    #2d1a00;
+  --text-mid:     #5c3d00;
+  --text-light:   #8b6914;
   --whatsapp:     #25d366;
 
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body:    'Lato', Arial, sans-serif;
 
   --radius:       12px;
-  --shadow:       0 4px 24px rgba(59,31,94,0.12);
-  --shadow-hover: 0 8px 36px rgba(59,31,94,0.22);
+  --shadow:       0 4px 24px rgba(45,26,0,0.14);
+  --shadow-hover: 0 8px 36px rgba(45,26,0,0.26);
   --transition:   0.3s ease;
 }
 
@@ -150,12 +150,12 @@ h4 {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(59,31,94,0.97);
+  background: rgba(45,26,0,0.97);
   transition: box-shadow var(--transition), background var(--transition);
 }
 .navbar.scrolled {
-  box-shadow: 0 2px 20px rgba(59,31,94,0.4);
-  background: rgba(59,31,94,1);
+  box-shadow: 0 2px 20px rgba(45,26,0,0.5);
+  background: rgba(45,26,0,1);
 }
 
 .nav-container {
@@ -232,7 +232,7 @@ h4 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-mid) 50%, #8b5bb5 75%, #c9a84c 100%);
+  background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-mid) 45%, #c09030 72%, #e8c97a 100%);
   padding: 100px 24px 60px;
   overflow: hidden;
 }
@@ -241,15 +241,15 @@ h4 {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 70% 30%, rgba(201,168,76,0.2) 0%, transparent 60%),
-              radial-gradient(ellipse at 20% 80%, rgba(107,63,160,0.4) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 70% 30%, rgba(232,201,122,0.35) 0%, transparent 60%),
+              radial-gradient(ellipse at 20% 80%, rgba(192,144,48,0.4)  0%, transparent 50%);
   pointer-events: none;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(27,10,50,0.35);
+  background: rgba(30,15,0,0.28);
   pointer-events: none;
 }
 
@@ -322,7 +322,7 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 12px 48px rgba(59,31,94,0.3);
+  box-shadow: 0 12px 48px rgba(45,26,0,0.35);
   border: 6px solid var(--gold);
   flex-shrink: 0;
 }
@@ -574,9 +574,9 @@ h4 {
 }
 
 @keyframes pulseRing {
-  0%   { box-shadow: 0 0 0 0 rgba(201,168,76,0.55), 0 12px 48px rgba(59,31,94,0.3); }
-  70%  { box-shadow: 0 0 0 22px rgba(201,168,76,0), 0 12px 48px rgba(59,31,94,0.3); }
-  100% { box-shadow: 0 0 0 0 rgba(201,168,76,0), 0 12px 48px rgba(59,31,94,0.3); }
+  0%   { box-shadow: 0 0 0 0 rgba(201,168,76,0.55), 0 12px 48px rgba(45,26,0,0.35); }
+  70%  { box-shadow: 0 0 0 22px rgba(201,168,76,0), 0 12px 48px rgba(45,26,0,0.35); }
+  100% { box-shadow: 0 0 0 0 rgba(201,168,76,0), 0 12px 48px rgba(45,26,0,0.35); }
 }
 
 @keyframes gradientPan {
@@ -759,7 +759,7 @@ h4 {
     top: 68px;
     left: 0;
     right: 0;
-    background: rgba(59,31,94,0.98);
+    background: rgba(45,26,0,0.98);
     padding: 16px 0 24px;
     border-bottom: 2px solid var(--gold);
   }
