@@ -44,12 +44,12 @@
   <section class="about" id="about">
     <div class="container">
       <div class="about-grid">
-        <div class="about-photo">
+        <div class="about-photo reveal reveal-left">
           <div class="photo-circle">
             <span class="initials">BSM</span>
           </div>
         </div>
-        <div class="about-text">
+        <div class="about-text reveal reveal-right">
           <p class="section-label">About Your Coach</p>
           <h2>Bibi Shameeza Meligat</h2>
           <p class="credentials">Transformational Mindset Coach<br />
@@ -65,37 +65,37 @@
   <!-- ===== SERVICES ===== -->
   <section class="services" id="services">
     <div class="container">
-      <p class="section-label center">What I Offer</p>
-      <h2 class="center">Services &amp; Specialties</h2>
-      <p class="section-sub center">Sessions by Appointment Only &mdash; in person (Guyana) or virtually via WhatsApp/Zoom.</p>
+      <p class="section-label center reveal">What I Offer</p>
+      <h2 class="center reveal stagger-1">Services &amp; Specialties</h2>
+      <p class="section-sub center reveal stagger-2">Sessions by Appointment Only &mdash; in person (Guyana) or virtually via WhatsApp/Zoom.</p>
 
       <div class="services-grid">
 
-        <div class="service-card">
+        <div class="service-card reveal stagger-1">
           <div class="service-icon">&#10024;</div>
           <h3>Mindset Transformation</h3>
           <p>Break through mental blocks and limiting beliefs that have kept you stuck. Rewire your thinking and unlock a growth-oriented mindset built for success.</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card reveal stagger-2">
           <div class="service-icon">&#129504;</div>
           <h3>Hypnotherapy Sessions</h3>
           <p>Access the power of your subconscious mind to release deep-rooted fears, anxieties, and patterns. Safe, guided, and profoundly transformative.</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card reveal stagger-3">
           <div class="service-icon">&#127775;</div>
           <h3>Business Clarity Coaching</h3>
           <p>Get laser-focused on your vision, strategy, and next steps. Ideal for women entrepreneurs who feel overwhelmed or unclear about their direction.</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card reveal stagger-4">
           <div class="service-icon">&#128149;</div>
           <h3>Confidence &amp; Emotional Alignment</h3>
           <p>Step into authentic confidence and emotional balance. Learn to lead from a place of strength, not fear — in business and in life.</p>
         </div>
 
-        <div class="service-card">
+        <div class="service-card reveal stagger-5">
           <div class="service-icon">&#127919;</div>
           <h3>Personal &amp; Professional Growth</h3>
           <p>Create a clear roadmap for your personal and professional evolution. Set meaningful goals and build the habits and accountability to achieve them.</p>
@@ -103,7 +103,7 @@
 
       </div>
 
-      <div class="services-cta">
+      <div class="services-cta reveal">
         <a href="mailto:smeligat@gmail.com" class="btn btn-primary">Enquire About Sessions</a>
       </div>
     </div>
@@ -112,13 +112,13 @@
   <!-- ===== CONTACT ===== -->
   <section class="contact" id="contact">
     <div class="container">
-      <p class="section-label center">Get In Touch</p>
-      <h2 class="center">Ready to Begin Your Journey?</h2>
-      <p class="section-sub center">Reach out via any of the channels below. All sessions are by appointment only.</p>
+      <p class="section-label center reveal">Get In Touch</p>
+      <h2 class="center reveal stagger-1">Ready to Begin Your Journey?</h2>
+      <p class="section-sub center reveal stagger-2">Reach out via any of the channels below. All sessions are by appointment only.</p>
 
       <div class="contact-grid">
 
-        <div class="contact-card">
+        <div class="contact-card reveal stagger-1">
           <div class="contact-icon">&#128222;</div>
           <h4>Call or WhatsApp</h4>
           <p><a href="tel:+5926687660">+592 668 7660</a></p>
@@ -126,14 +126,14 @@
           <span class="badge">WhatsApp Available</span>
         </div>
 
-        <div class="contact-card">
+        <div class="contact-card reveal stagger-2">
           <div class="contact-icon">&#9993;</div>
           <h4>Email</h4>
           <p><a href="mailto:smeligat@gmail.com">smeligat@gmail.com</a></p>
           <p class="small-text">Expect a reply within 24 hours</p>
         </div>
 
-        <div class="contact-card">
+        <div class="contact-card reveal stagger-3">
           <div class="contact-icon">&#128205;</div>
           <h4>Location</h4>
           <p>One Public Road</p>
@@ -143,7 +143,7 @@
 
       </div>
 
-      <div class="contact-actions">
+      <div class="contact-actions reveal">
         <a href="mailto:smeligat@gmail.com" class="btn btn-primary">Send an Email</a>
         <a href="https://wa.me/5926687660" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">&#128172; Chat on WhatsApp</a>
       </div>
@@ -180,6 +180,18 @@
         document.getElementById('navLinks').classList.remove('open');
       });
     });
+
+    // Scroll-reveal via Intersection Observer
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   </script>
 
 </body>
