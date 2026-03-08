@@ -181,6 +181,31 @@
       });
     });
 
+    // Typewriter effect on hero title
+    (function () {
+      const el = document.querySelector('.hero-title');
+      const line1 = 'Transform Your Mindset.';
+      const line2 = 'Step Into Your Power.';
+      el.innerHTML = '';
+      el.style.animation = 'none';
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+      let phase = 0, i = 0;
+      function type() {
+        if (phase === 0) {
+          el.textContent = line1.slice(0, i + 1);
+          i++;
+          if (i >= line1.length) { phase = 1; i = 0; setTimeout(type, 450); return; }
+        } else {
+          el.innerHTML = line1 + '<br />' + line2.slice(0, i + 1);
+          i++;
+          if (i >= line2.length) return;
+        }
+        setTimeout(type, 52);
+      }
+      setTimeout(type, 650);
+    }());
+
     // Scroll-reveal via Intersection Observer
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {

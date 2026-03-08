@@ -102,6 +102,8 @@ h4 {
 =========================== */
 .btn {
   display: inline-block;
+  position: relative;
+  overflow: hidden;
   padding: 14px 32px;
   border-radius: 50px;
   font-family: var(--font-body);
@@ -632,7 +634,7 @@ h4 {
 .reveal {
   opacity: 0;
   transform: translateY(44px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
+  transition: opacity 0.7s ease, transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .reveal.reveal-left {
@@ -654,6 +656,94 @@ h4 {
 .stagger-3 { transition-delay: 0.25s; }
 .stagger-4 { transition-delay: 0.35s; }
 .stagger-5 { transition-delay: 0.45s; }
+
+/* --- Button shine sweep --- */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+.btn:hover::after { left: 150%; }
+
+/* --- Hero sparkle stars --- */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.12; transform: scale(0.5); }
+  50%       { opacity: 0.9;  transform: scale(1.3); }
+}
+@keyframes twinkleAlt {
+  0%, 100% { opacity: 0.8;  transform: scale(1.2); }
+  50%       { opacity: 0.08; transform: scale(0.4); }
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  pointer-events: none;
+  z-index: 0;
+  box-shadow:
+     120px  80px 1px 1px rgba(255,255,255,0.75),
+     290px 145px 0px 1px rgba(201,168,76,0.85),
+     460px  55px 1px 1px rgba(255,255,255,0.65),
+     610px 200px 0px 1px rgba(201,168,76,0.7),
+     770px 110px 1px 1px rgba(255,255,255,0.85),
+     930px 180px 0px 1px rgba(201,168,76,0.65),
+      70px 295px 1px 0px rgba(255,255,255,0.55),
+     365px 320px 0px 1px rgba(201,168,76,0.8),
+     535px 260px 1px 0px rgba(255,255,255,0.7),
+     715px 350px 1px 1px rgba(201,168,76,0.55),
+     215px 435px 0px 1px rgba(255,255,255,0.65),
+     875px 380px 1px 1px rgba(201,168,76,0.75),
+     168px 535px 0px 1px rgba(255,255,255,0.5),
+     435px 500px 1px 1px rgba(201,168,76,0.65),
+     665px 470px 0px 1px rgba(255,255,255,0.8),
+    1065px  90px 1px 1px rgba(255,255,255,0.6),
+    1115px 280px 0px 1px rgba(201,168,76,0.7),
+    1015px 400px 1px 1px rgba(255,255,255,0.5),
+      38px 615px 0px 1px rgba(201,168,76,0.65),
+     315px 665px 1px 1px rgba(255,255,255,0.7),
+     595px 590px 0px 1px rgba(201,168,76,0.5),
+     860px 630px 1px 1px rgba(255,255,255,0.65),
+     485px 725px 0px 1px rgba(201,168,76,0.7),
+     740px 705px 1px 1px rgba(255,255,255,0.5);
+  animation: twinkle 3.8s ease-in-out infinite;
+}
+
+.hero::before {
+  animation: heroOrbPulse 8s ease-in-out infinite, twinkleAlt 5.5s ease-in-out 2s infinite;
+}
+
+/* --- Service icon bounce on hover --- */
+@keyframes iconBounce {
+  0%   { transform: translateY(0)    scale(1);    }
+  30%  { transform: translateY(-12px) scale(1.2); }
+  60%  { transform: translateY(-4px)  scale(1.07); }
+  100% { transform: translateY(0)    scale(1);    }
+}
+.service-card:hover .service-icon {
+  animation: iconBounce 0.55s ease forwards;
+  display: inline-block;
+}
+
+/* --- Contact icon wiggle on hover --- */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg)   scale(1);   }
+  25%       { transform: rotate(-15deg) scale(1.15); }
+  75%       { transform: rotate(15deg)  scale(1.15); }
+}
+.contact-card:hover .contact-icon {
+  animation: wiggle 0.45s ease forwards;
+  display: inline-block;
+}
 
 /* ===========================
    RESPONSIVE
